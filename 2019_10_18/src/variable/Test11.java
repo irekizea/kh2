@@ -6,12 +6,12 @@ public class Test11 {
             int kid = 3;
             double discountrate = (double)25/100; 
             
-            int adultprice = 10000;
-            int kidprice = 7000;
+            int adultPrice = 10000;
+            int kidPrice = 7000;
  
-            int totalprice = adultprice * adult + kidprice * kid;
-            double discountedprice = totalprice * discountrate;
-            double pay = totalprice - discountedprice ;
+            int totalPrice = adultPrice * adult + kidPrice * kid;
+            double discountedPrice = totalPrice * discountrate;
+            double pay = totalPrice - discountedPrice ;
             
             System.out.println((int)pay);
             
