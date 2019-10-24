@@ -24,19 +24,20 @@ public class Test05 {
 			  d = 0;
 			else 
 				d = 1;
+		int sum = a + b + c + d;
 		
 		if(a==1 && b+c+d ==0)
 			System.out.println("백도");
-		else if(a + b + c + d == 00) {
+		else if(sum == 00) {
 			System.out.println("윳");
 		}
-		else if(a + b + c + d == 1) {
+		else if(sum == 1) {
 			System.out.println("도");
 		}
-		else if(a + b + c + d == 2) {
+		else if(sum == 2) {
 			System.out.println("개");
 		}
-		else if(a + b + c + d ==3) {
+		else if(sum ==3) {
 			System.out.println("걸");
 		}
 		else
