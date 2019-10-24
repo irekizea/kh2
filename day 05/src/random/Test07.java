@@ -46,6 +46,11 @@ public class Test07 {
 		}
 		else
 		System.out.println("지불 하실 가격은 "+ price + "입니다");
+		
 	}
 		
 	}
+
+
+
+//int age = Calendar.getIstance().get(Calnedar.YEAR) 연도 구하기
