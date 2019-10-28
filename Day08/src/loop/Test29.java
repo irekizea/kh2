@@ -6,15 +6,14 @@ public class Test29 {
 			
 			int score;
 			
-			while(true) {
+			do{
 				System.out.println("정수 입력");
 				score = sc.nextInt();
-				
-				if(score >= 0 && score <=100) {
-					break;
-				}
 			}
+				while(score >= 0 && score <=100); {
+			
 			sc.close();
 			System.out.println("입력 정수 : " + score);
+				}
 	}
 }
