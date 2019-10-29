@@ -2,7 +2,7 @@ package array;
 import java.util.Scanner;
 public class Test02 {
 	public static void main(String[] args) {
-		int[]/*인트 묶음*/ t = new int[5];
+		int[] t = new int[5];
 		// t(리모컨)------->[0][0][0][0][0]
 		
 		
