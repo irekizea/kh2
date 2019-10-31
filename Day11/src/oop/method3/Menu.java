@@ -16,7 +16,7 @@ public class Menu {
 			this.price = price;
 		this.kind = kind;
 	}
-	
+
 	void print() {
 		System.out.print(this.name + "\t");
 		System.out.print(this.price + "\t");
