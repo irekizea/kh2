@@ -7,11 +7,7 @@ public class Test01 {
 		Customer b = new Customer();
 		Customer c = new Customer();
 		
-		a.setName("가나다");
-		a.setPhone("갤럭시s10");
-		a.setBroad("Sk");
-		a.setEngage(24);
-		a.setPrice(110);
+		a.set("가나다", "갤럭시s10", "sk", 24, 110);
 		
 		b.setName("라마바");
 		b.setPhone("아이폰11");

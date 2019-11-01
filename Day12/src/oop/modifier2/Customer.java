@@ -66,6 +66,17 @@ public class Customer {
 	int getPrice() {
 		return this.price;
 	}
+	void set(String name, String phone, String broad, int engage, int price) {
+	this.setName(name);
+	this.setPhone(phone);
+	this.setBroad(broad);
+	this.setEngage(engage);
+	this.setPrice(price);
+	}
+	
+	
+	
+	
 	void print() {
 	System.out.println(this.name + "\t"+this.phone + "\t" + this.broad + "\t" +  this.engage + "\t" + this.price);
 	}
