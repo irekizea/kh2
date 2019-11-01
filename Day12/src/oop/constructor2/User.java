@@ -16,17 +16,20 @@ public class User {
 	
 	User(String id, String pas, String nic, String own ){
 	this.id = id;
-	if(id.length()<2 || id.length() >7) {
-		while(this.id.length() <2 && this.id.length()<8) {
-			System.out.println("아이디 입력 오류 다시 입력");
-		this.id=sc.next();	
-		if(id.length()>1 && id.length()<7)
-			break;
-		}
-	}
+//	if(id.length()<2 || id.length() >7) {
+//		while(this.id.length() <2 && this.id.length()<8) {
+//			System.out.println("아이디 입력 오류 다시 입력");
+//		this.id=sc.next();	
+//		if(id.length()>1 && id.length()<7)
+//			break;
+//		}
+//	}
 	this.pas = pas;
 	this.nic = nic;
 	this.own = own;
+	if(own == "x") {
+		this.own="일반";
+	}
 	}
 
 	void print(){
