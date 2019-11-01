@@ -10,10 +10,7 @@ public class Menu {
 	void set( boolean eve, String name, int price, String kind) {
 		this.eve =eve;
 		this.name=name;
-		if(eve)
-		this.price = price*9/10;
-		else
-			this.price = price;
+		this.price = price;
 		this.kind = kind;
 	}
 
@@ -22,7 +19,7 @@ public class Menu {
 		System.out.print(this.price + "\t");
 		System.out.print(this.kind + "\t");
 		if(eve)
-		System.out.println("행사중");
+		System.out.println("행사중"+price*9/10);
 		else
 			System.out.println("행사 상품 아님");
 		
