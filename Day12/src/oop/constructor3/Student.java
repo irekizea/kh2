@@ -8,7 +8,7 @@ public class Student {
 	private int sum;
 	private double average;
 	private boolean suc;
-	boolean a;
+	private boolean a;
 	
 	Student(String name, int language, int english, int k){
 		this.name = name;
