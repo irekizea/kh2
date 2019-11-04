@@ -9,6 +9,8 @@ public class Student {
 	private double average;
 	private boolean suc;
 	private boolean a;
+	//pirvate suc = average/3>60;
+	
 	
 	Student(String name, int language, int english, int k){
 		this.name = name;
