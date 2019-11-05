@@ -13,15 +13,15 @@ public class Test01 {
 		Ani c;
 		
 		if(a==0) {
-			c = new Cat(b);
+			c = new Cat();
 			System.out.println("고양이 생성");
 		}
 			else if(a==1) {
-				c = new Dog(b);
+				c = new Dog();
 				System.out.println("강아지 생성");
 			}
 			else {
-				c = new Lion(b);
+				c = new Lion();
 				System.out.println("사자 생성");
 		}
 		
