@@ -1,9 +1,7 @@
 package oop.poly2;
 
 public class Cat extends Ani{
-	public Cat(int b) {
-		super(b);
-	}
+	
 	public void bark() {
 		System.out.println("야아옹~");
 	}
