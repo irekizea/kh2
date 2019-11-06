@@ -30,13 +30,13 @@ public class Test03 {
 //		catch(Throwable e) {// 모든 에러 매세지 처리 가능
 //		catch(Object e) {
 //			System.err.println("에러");
-//			System.err.println(e);
+			System.err.println(e);
 //			System.err.println(e.getClass());
 //			System.err.println(e.getMessage());
 			
 //			stacktrace :printstacktrace
 			
-			e.printStackTrace();
+//			e.printStackTrace(); //오류 상세 정보
 			JOptionPane.showMessageDialog(null,"오류가 발생했습니다");
 		}
 

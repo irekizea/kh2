@@ -20,9 +20,11 @@ public class Test05 {
 			String[] result = song.split(" ");
 			
 			for(int i = 0 ; i<result.length; i++)
-			System.out.print(result[i]);
+			System.out.print(result[i]+"hh");
 			
 			String[] result2 = url.split("[/.]");
+			
+			System.out.println();
 			for (String str : result2) {
 				System.out.println(str);
 			}
