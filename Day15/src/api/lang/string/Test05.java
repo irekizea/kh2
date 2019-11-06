@@ -30,6 +30,7 @@ public class Test05 {
 //			치환  .replace()
 			String str = "나는 카레가 싫어요";
 			System.out.println(str.replace("싫어요", "좋아요"));
+			System.out.println(str.replace("카레", "자바").replace("싫어요", "좋아요"));
 			
 	}
 
