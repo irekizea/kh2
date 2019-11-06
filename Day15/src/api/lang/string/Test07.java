@@ -2,7 +2,7 @@ package api.lang.string;
 
 public class Test07 {
 	public static void main(String[] args) {
-//		Math class
+//		Math class (non cons)
 //		Math a = new Math();
 		
 		System.out.println(Math.PI);
@@ -19,6 +19,13 @@ public class Test07 {
 		System.out.println(b-a);
 		System.out.println(Math.abs(a - b));
 		System.out.println(Math.abs(b - a));
+		
+//		반올림, 올림, 버림
+		double c = 1.5;
+		System.out.println(Math.round(c));
+		System.out.println(Math.ceil(c));
+		System.out.println(Math.floor(c));
+		
 	}
 
 }
