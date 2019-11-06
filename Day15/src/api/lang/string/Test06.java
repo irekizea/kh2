@@ -11,11 +11,16 @@ public class Test06 {
 		System.out.println(b);
 		
 		String c = String.valueOf(a);
+		System.out.println("c"+c);
 		
 		String d = "345";
 //		int e = d;
 		int e = Integer.parseInt(d);
 		System.out.println(e);
+//		parseLong 롱으로 변환, chr 은 변환 불가
 	}
 
 }
+
+// in usuall use of priave : all static, limited things(single class) 
+// in case of math is all static
