@@ -23,6 +23,7 @@ public class Test02 {
 		
 		//강제 종료
 		System.exit(0);
+		System.gc();  // 메모리 관리 강제 실행
 		
 		System.out.println("이 메시지는 나오지 않습니다");
 	}
