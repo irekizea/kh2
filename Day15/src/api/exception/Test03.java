@@ -3,6 +3,8 @@ package api.exception;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Test03 {
 
 	public static void main(String[] args) {
@@ -27,10 +29,15 @@ public class Test03 {
 		catch(Exception e){
 //		catch(Throwable e) {// 모든 에러 매세지 처리 가능
 //		catch(Object e) {
-			System.err.println("에러");
-			System.err.println(e);
-			System.err.println(e.getClass());
-			System.err.println(e.getMessage());
+//			System.err.println("에러");
+//			System.err.println(e);
+//			System.err.println(e.getClass());
+//			System.err.println(e.getMessage());
+			
+//			stacktrace :printstacktrace
+			
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"오류가 발생했습니다");
 		}
 
 		
