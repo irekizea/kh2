@@ -3,7 +3,7 @@ package api.exception;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Test02 {
+public class Test03 {
 
 	public static void main(String[] args) {
 //		테스트 결과
@@ -22,12 +22,17 @@ public class Test02 {
 		System.out.println("한사람당"+ apple/people + "개씩 줄 수 있음");
 		System.out.println("남은 개수는 " + apple%people  + "개 입니다");
 		}
-		catch(ArithmeticException e){
-			System.err.println("사람 필요");
+//		catch(RuntimeException e){
+		
+		catch(Exception e){
+//		catch(Throwable e) {// 모든 에러 매세지 처리 가능
+//		catch(Object e) {
+			System.err.println("에러");
+			System.err.println(e);
+			System.err.println(e.getClass());
+			System.err.println(e.getMessage());
 		}
-		catch(InputMismatchException e){
-			System.err.println("정수를 입력");
-		}
+
 		
 //		check on higher class
 	}
