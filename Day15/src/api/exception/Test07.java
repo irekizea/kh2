@@ -29,7 +29,6 @@ public class Test07 {
 			
 		}
 		finally {// 예외 여부와 관계 없이 무조건 실행 : 마무리 작업을 수행
-			sc.close();
 		}
 	}
 

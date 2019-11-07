@@ -36,7 +36,7 @@ public class Test03 {
 			
 //			stacktrace :printstacktrace
 			
-//			e.printStackTrace(); //오류 상세 정보
+			e.printStackTrace(); //오류 상세 정보
 			JOptionPane.showMessageDialog(null,"오류가 발생했습니다");
 		}
 

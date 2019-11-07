@@ -20,6 +20,7 @@ public class Test04 {
 			
 		}
 		int people = sc.nextInt();
+		
 		sc.close();
 		
 		System.out.println("한사람당"+ apple/people + "개씩 줄 수 있음");
