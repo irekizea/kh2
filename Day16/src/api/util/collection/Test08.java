@@ -23,5 +23,4 @@ public class Test08 {
 		System.out.println(que);
 		
 	}
-
 }

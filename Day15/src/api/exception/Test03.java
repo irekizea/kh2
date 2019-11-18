@@ -39,6 +39,7 @@ public class Test03 {
 			e.printStackTrace(); //오류 상세 정보
 			JOptionPane.showMessageDialog(null,"오류가 발생했습니다");
 		}
+	
 
 		
 //		check on higher class
