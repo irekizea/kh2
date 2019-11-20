@@ -150,6 +150,17 @@ public class KHMemberDao {
 		
 		return change;
 	}
+	
+	public void delete(String id) throws Exception {
+		Connection con = this.getConnection();
+		
+		String sql = "delete from kh_member where id = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, id);
+		
+		ps.execute();
+		con.close();
+	}
 
 
 }
