@@ -37,7 +37,7 @@ public class AdminChangeInfoServlet extends HttpServlet{
 			dao.changeInfo(dto);
 			
 		
-			resp.sendRedirect("info.jsp");
+			resp.sendRedirect("admin_nfo.jsp");
 			
 			
 		}catch(Exception e) {

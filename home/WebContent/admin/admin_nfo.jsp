@@ -66,10 +66,7 @@ String id = request.getParameter("uid");
 
  	</table>
  	
- 	
- 	<h4><a href = "/home/admin/change_info.jsp">회원정보 수정</a></h4>
- 	<h4><a href = "/admin/exit.jsp">회원 탈퇴</a></h4>
- 
+
  
  </div>
  
