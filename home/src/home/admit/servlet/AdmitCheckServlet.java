@@ -1,4 +1,4 @@
-package admit.servlet;
+package home.admit.servlet;
 
 import java.io.IOException;
 
@@ -10,40 +10,33 @@ import javax.servlet.http.HttpServletResponse;
 
 import home.beans.MemberDao;
 
-@WebServlet(urlPatterns= "/admin/exit.do")
-public class AdminExitServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/admin/check.do")
+public class AdmitCheckServlet extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			req.setCharacterEncoding("UTF-8");
-			String id = (String) req.getSession().getAttribute("id");
+		String id = (String)req.getSession().getAttribute("id");
+		String pw = req.getParameter("pw");
+		String go = req.getParameter("go");
 		MemberDao dao = new MemberDao();
+		boolean result = dao.login(id, pw);
 		
-		req.getSession().removeAttribute("id");
-		req.getSession().removeAttribute("grade");
-			boolean result = dao.exit(id);
-			
-			if(result) {
-
-				resp.sendRedirect("exit_result.jsp");
-			}
-			else
-				resp.sendRedirect("exit.jsp");
-			
-			
-			
-		} catch (Exception e) {
+		System.out.println(go);
 		
+		
+		if(result) {
+			resp.sendRedirect(req.getContextPath()+go);
+			
+		}else {
+			resp.sendRedirect("check.jsp?error");
+		}
+		
+		}
+		catch(Exception e ) {
 			e.printStackTrace();
 			resp.sendError(500);
 		}
-		
-		
-		
-		
-		
-		
 	}
 
 }

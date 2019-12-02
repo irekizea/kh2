@@ -150,7 +150,7 @@ public class MemberDao {
 			Connection con =getConnection();
 			
 			String sql = "update member "
-						+ "set phone = ?, post = ?, basic_addr=?, extra_addr=? where id =?";
+						+ "set phone = ?, post = ?, basic_addr=?, extra_addr=?, pw=?, point=?, grade=?  where id =?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			
@@ -159,7 +159,10 @@ public class MemberDao {
 			ps.setString(2, dto.getPost());
 			ps.setString(3, dto.getBasic_addr());
 			ps.setString(4, dto.getExtra_addr());
-			ps.setString(5, dto.getId());
+			ps.setString(5, dto.getPw());
+			ps.setInt(6, dto.getPoint());
+			ps.setString(7, dto.getGrade());
+			ps.setString(8, dto.getId());
 			
 			ps.execute();
 			
@@ -192,6 +195,37 @@ public class MemberDao {
 			return dto;
 		
 
+		}
+		
+		public List<MemberDto> search(String type, String keyword) throws Exception{
+			Connection con = getConnection();
+			
+			String sql = "select * from member where "+type+" like '%'||?||'%' order by "+type+" asc";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1,  keyword);
+			ResultSet rs = ps.executeQuery();
+			
+			List<MemberDto> list = new ArrayList<>();
+			while(rs.next()) {
+				MemberDto dto = new MemberDto();
+				 dto.setId(rs.getString("id"));
+				 dto.setBasic_addr(rs.getString("basic_addr"));
+				 dto.setExtra_addr(rs.getString("extra_addr"));
+				 dto.setGrade(rs.getString("grade"));
+				 dto.setJoindate(rs.getString("joindate"));
+				 dto.setName(rs.getString("name"));
+				 dto.setPhone(rs.getString("phone"));
+				 dto.setPost(rs.getString("post"));
+				 
+				 list.add(dto);
+				}
+			con.close();
+			
+			return list;
+			
+	
+			
+			
 		}
 		
 	

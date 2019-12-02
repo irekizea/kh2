@@ -7,7 +7,7 @@
 
 <%
 
-String id = request.getParameter("uid");
+String id = request.getParameter("id");
 	MemberDao dao = new MemberDao();
 	MemberDto dto = dao.get(id);
 	
@@ -66,9 +66,19 @@ String id = request.getParameter("uid");
 
  	</table>
  	
+ 	
+ 	<form action="change_info.jsp">
+ 	</form>
+ 	<h4><a href = "spare.do?id=<%=dto.getId()%>">비번 변경</a></h4>
+ 	<h4><a href = "input.jsp?id=<%=dto.getId()%>">회원정보 수정</a></h4>
+ 	<h4><a href = "out.do?id=<%=dto.getId()%>">회원 탈퇴</a></h4>
 
  
  </div>
+ 
+ 
+
+ 
  
  <jsp:include page = "/template/footer.jsp"></jsp:include>
  	

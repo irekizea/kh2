@@ -1,4 +1,4 @@
-package admit.servlet;
+package home.admit.servlet;
 
 import java.io.IOException;
 
@@ -9,22 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import home.beans.MemberDao;
+import home.util.StringUtil;
 
-@WebServlet(urlPatterns = "/admin/change_pw.do")
-public class AdminChangePwServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/admin/spare.do")
+public class AdminSpareServlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			
 			req.setCharacterEncoding("UTF-8");
-			String pw = req.getParameter("pw");
-			
-			String id = (String)req.getSession().getAttribute("id");
-			
 			MemberDao dao = new MemberDao();
+			String id = req.getParameter("id");
+			
+			String pw = StringUtil.GenerateRandomString(10);
+//			System.out.println(id+"asd");
+			req.getSession().setAttribute("pw", pw);
 			dao.chagePassword(id, pw);
 			
-			resp.sendRedirect("change_pw_result.jsp");
-			
+			resp.sendRedirect("spare_result.jsp");
 			
 			
 			

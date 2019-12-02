@@ -1,4 +1,4 @@
-package admit.servlet;
+package home.admit.servlet;
 
 import java.io.IOException;
 

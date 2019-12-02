@@ -152,6 +152,12 @@ public class MemberDto {
 	public String getJoindateWithFromat() throws ParseException {
 		//[1] 내가 가진 가입일을 날짜 형식(java.util.Date)으로 변환
 		//[2] 1번 결과를 다시 원하는 형식의 문자열로 변환 -. format()
+		
+		if(joindate == null) {
+			return "";
+			
+		}else {
+		
 		SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 		Date date = read.parse(joindate);
 		
@@ -159,10 +165,15 @@ public class MemberDto {
 		String time = write.format(date);
 		
 		return time;
-		
+		}
 		
 	}
 	public String getLast_loginWithFormat() throws ParseException{
+		
+		if(last_login == null) {
+			return "";
+		}else {
+		
 		SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 		Date date = read.parse(last_login);
 		
@@ -170,6 +181,7 @@ public class MemberDto {
 		String time = write.format(date);
 		
 		return time;
+		}
 	}
 
 }

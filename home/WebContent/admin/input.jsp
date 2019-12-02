@@ -5,16 +5,18 @@
 <%@page import="home.beans.MemberDto"%>
     
  <%
- 	String id = (String)session.getAttribute("id");
+ 	String id = request.getParameter("id");
+	System.out.println(id);
  	MemberDao dao = new MemberDao();
+
  	MemberDto dto = dao.get(id);
- 
+
  %>
 <jsp:include page = "/template/header.jsp"></jsp:include>
 
 <div align = "center">
 
-	<form action = "change_info.do">
+	<form action = "input.do">
 		<table>
 			<tr>
 				<th>전화번호 입력</th>
@@ -43,8 +45,34 @@
 				</td>
 			</tr>
 				
+				
+				
+				<tr>
+				<td>비번</td>
+				<td>
+				<input type = "text" name = "pw" value = "<%=dto.getPw()%>">
+				</td>
+				
 			<tr>
-				<td></td>
+				<td>포인트</td>
+				<td>
+				<input type = "text" name = "point" value = "<%=dto.getPoint()%>">
+				</td>
+				
+				<tr>
+				<td>등급</td>
+				<td>
+				<select name ="grade">
+					<option>일반회원</option>
+					<option>우수회원</option>
+				</select>
+				</td>
+		
+				
+				
+				
+			<tr>
+				<td><input type ="hidden" name = "id" value = "<%=id%>"></td>
 				<td align = "right"><input type="submit" name = "변경"></td>
 			</tr>
 
