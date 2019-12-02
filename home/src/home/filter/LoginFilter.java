@@ -11,7 +11,18 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter
+@WebFilter(urlPatterns = {
+		"/admin/*",
+		"/member/info.jsp",
+		"/member/change_info.do",
+		"/member/change_info.jsp",
+		"/member/check.do",
+		"/member/check.jsp",
+		"/member/exit.do",
+		"/member/logout.do"
+		
+		
+})
 public class LoginFilter implements Filter{
 	
 	@Override

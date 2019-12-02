@@ -29,7 +29,7 @@ public class AdminFilter implements Filter{
 		if(id!=null&&grade=="관리자")
 		chain.doFilter(request, response);
 		else
-			resp.sendRedirect(req.getContextPath()+"/member/login.jsp");
+			resp.sendError(403);;
 		
 	}
 	
