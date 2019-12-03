@@ -38,7 +38,7 @@ public class LoginFilter implements Filter{
 			chain.doFilter(request, response);
 		}
 		else {
-			resp.sendRedirect(req.getContextPath()+"/home/member/login.jsp");
+			resp.sendRedirect(req.getContextPath()+"/member/login.jsp");
 		}
 		
 	}

@@ -22,9 +22,7 @@
 	else{
 		list = null;
 	}
-		
-	
-	
+
 %>
 
 <div align = "center">
