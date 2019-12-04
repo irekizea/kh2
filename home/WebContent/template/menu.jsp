@@ -31,4 +31,4 @@
 		 <%if(admin) { %>
 		 	 <a href = "<%=context%>/admin/list.jsp"> 회원찾기</a> 
 		 <%} %>
-		 <a href = "#"> 게시판               </a> 
+		 <a href = "<%=context%>/board/list.jsp"> 게시판               </a> 

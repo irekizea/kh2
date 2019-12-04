@@ -11,37 +11,28 @@ import javax.servlet.http.HttpServletResponse;
 import home.beans.BoardDao;
 import home.beans.BoardDto;
 
-@WebServlet(urlPatterns = "/board/write.do")
-public class BoardWriteServlet extends HttpServlet{
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try {
-		req.setCharacterEncoding("UTF-8");
+@WebServlet(urlPatterns = "/board/edit.do")
+public class BoardEditServlet extends HttpServlet{
 
-		
-		
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
 		BoardDao dao = new BoardDao();
 		BoardDto dto = new BoardDto();
 		
 		dto.setContent(req.getParameter("content"));
 		dto.setHead(req.getParameter("head"));
 		dto.setTitle(req.getParameter("title"));
-		String id = (String)req.getSession().getAttribute("id");
-		dto.setWriter(id);
-		
-			int no = dao.getSequence();
-			dto.setNo(no);
-			dao.BoardWrite(dto);
-			
-			resp.sendRedirect("/home/board/list.jsp");
-			
-		} catch (Exception e) {
-			resp.sendError(500);
-			e.printStackTrace();
-		}
-		
-		
-	}
+		dto.setNo(Integer.parseInt(req.getParameter("no")));
+	
 
+				dao.BoardEdit(dto);
+
+			
+			resp.sendRedirect("content.jsp?no="+dto.getNo());
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp.sendError(404);
+		}
+	}
 }

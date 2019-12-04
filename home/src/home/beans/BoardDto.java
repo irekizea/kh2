@@ -3,28 +3,12 @@ package home.beans;
 public class BoardDto {
 	private int no;
 	private String head;
+	private String title;
+	private String writer;
 	private String wdate;
-	private String content;
-	private int rnum;
-	private String name;
-	public BoardDto() {
-		super();
-	}
-	public BoardDto(int no, String head, String wdate, String content, int rnum, String name) {
-		super();
-		this.no = no;
-		this.head = head;
-		this.wdate = wdate;
-		this.content = content;
-		this.rnum = rnum;
-		this.name = name;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	private int readcount;
+	private int replycount;
+	private String content ;
 	public int getNo() {
 		return no;
 	}
@@ -37,11 +21,35 @@ public class BoardDto {
 	public void setHead(String head) {
 		this.head = head;
 	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 	public String getWdate() {
 		return wdate;
 	}
 	public void setWdate(String wdate) {
 		this.wdate = wdate;
+	}
+	public int getReadcount() {
+		return readcount;
+	}
+	public void setReadcount(int readcount) {
+		this.readcount = readcount;
+	}
+	public int getReplycount() {
+		return replycount;
+	}
+	public void setReplycount(int replycount) {
+		this.replycount = replycount;
 	}
 	public String getContent() {
 		return content;
@@ -49,20 +57,22 @@ public class BoardDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getRnum() {
-		return rnum;
-	}
-	public void setRnum(int rnum) {
-		this.rnum = rnum;
-	}
-	public BoardDto(int no, String head, String wdate, String content, int rnum) {
+	public BoardDto(int no, String head, String title, String writer, String wdate, int readcount, int replycount,
+			String content) {
 		super();
 		this.no = no;
 		this.head = head;
+		this.title = title;
+		this.writer = writer;
 		this.wdate = wdate;
+		this.readcount = readcount;
+		this.replycount = replycount;
 		this.content = content;
-		this.rnum = rnum;
 	}
+	public BoardDto() {
+		super();
+	}
+	
 	}
 	
 

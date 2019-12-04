@@ -3,31 +3,48 @@
 <jsp:include page = "/template/header.jsp"></jsp:include>
 
 <div align = "center">
-	<form action = "/home/board/write.do">
 
-	<table border = "1">
+	<h2 ><font color= "red">글 이쁘게 써</font></h2>
+
+	<form action = "/home/board/write.do" method = "post">
+			<!-- 	
+		<select name = "head">
+			<option value = "">선택</option>
+			<option>공지</option>
+			<option>정보</option>
+			<option>유머</option>
+		
+		</select>
+		
+		<input type = "text" name = "title" required>
+		<textarea name = "content"></textarea>
+		
+		<input type = "submit" value = "등록하기">
+
+ -->
+	<table border = "1" width = "80%">
 		<tr>
-			<td>게시판</td>
+			<td colspan = "2">게시판</td>
 			<td><select name = "head">
+				<option value = "">선택</option>
 				<option>공지</option>
 				<option>정보</option>
 				<option>일반</option>
 			</select></td>
 		</tr>
 		<tr>
-			<td>제목</td>
-			<td><textarea name = "name" rows = "1" cols = "100"></textarea></td>
+			<td colspan = "2">제목</td>
+			<td><textarea name = "title" rows = "1" cols = "95"></textarea></td>
 		</tr>
 		<tr>
-			<td>내용</td>
-			<td>
-			<textarea name = "content" rows="30" cols="100"></textarea>
+			<td colspan = "3">
+			<textarea name = "content" rows="30" cols="100" required style ="resize:vertical"></textarea>
 			</td>
 		
 		</tr>
 		<tr align = "right">
-			<td></td>
-			<td><input type = "submit" name = "작성"></td>
+			
+			<td colspan ="3"><a href = "#" >상세정보</a><input type = "submit" name = "작성"></td>
 		</tr>
 	
 	
