@@ -10,27 +10,6 @@
 <%@page import="home.beans.BoardDto"%>
 
 <%
-	
-	int pno;
-	
-
-	
-	try{
-		pno=Integer.parseInt(request.getParameter("pno"));
-		if(pno<=0) throw new Exception();
-		
-	}
-	catch(Exception e){
-		pno=1;
-	}
-	
-	int pageSize= 10;
-	
-	int finish = pno * pageSize;
-	int start = finish -pageSize+1;
-	
-	System.out.println("start =" +start +"finish = " + finish);
-
 
 	BoardDao dao = new BoardDao();
 
@@ -43,34 +22,10 @@
 	
 	
 	if(isSearch)
-	list = dao.list(start, finish, type, keyword);
+	list = dao.list(type, keyword);
 	else
- 	list= dao.list(start, finish);
+ 	list= dao.list();
  	
-	/**
-	
-	하단 네비게이터 계산하기
-	-시작블록=(현제페이지-1)/네비게이터크기*네비게이터크기+1
-	
-	
-	**/
-	
-	
-	int navsize = 10;
-	
-	int count = dao.getCount(type, keyword);
-	
-	int startBlock = (pno-1)/navsize * navsize +1;
-	int finishblock = startBlock +(navsize-1);
-	int pagecount = (count+pageSize)/pageSize;
-	
-
-	
-	// 만약 마지막 블록이 페이지 수보다 크다면 수정 처리
-	if(finishblock>pagecount){
-		finishblock = pagecount;
-	}
-	
 %>
 
 <div align="center">
@@ -121,22 +76,7 @@
 
 </table>
 
-
-
-<jsp:include page="/template/navigator.jsp">
-		<jsp:param name="pno" value="<%=pno%>"/>
-		<jsp:param name="count" value="<%=count%>"/>
-		<jsp:param name="navsize" value="<%=navsize%>"/>
-		<jsp:param name="pageSize" value="<%=pageSize%>"/>
-	</jsp:include>
-
- 	
- 	
- 	
- 	
- 	
- 	
- 	
+ 	<h5>[이전] 1 2 3 4 5 6 7 8 9 10 [다음]</h5>
 	<form action="list.jsp" method = "get">
 		<select name = "type">
 		
@@ -150,9 +90,7 @@
 	
 	
 	</form>
-	<h5>pno = <%=pno %>, type = <%=type %>, keyword=<%=keyword %></h5>
-	<h5>pageSize = <%=pageSize %>, startBlock = <%=startBlock %>, finishblock  = <%=finishblock %></h5>
-	<h5>count=<%=count %></h5>
+
 
 
 </div>

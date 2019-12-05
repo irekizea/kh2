@@ -8,12 +8,30 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 public class MemberDao {
+	//자원 참조하는 변수 생성(리모컨)
+
+	private static DataSource source;
+	static {
+		//source에 context.xml의 Resource 정보를 설정
+		//[1] 탐색 도구 생성
+		//[2] 도구를 이용하여 탐색 후 source에 대입
+		try {
+			InitialContext ctx = new InitialContext();//[1]
+			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");			
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 	public Connection getConnection() throws Exception{
-		Class.forName("oracle.jdbc.OracleDriver");
-		return DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521:xe", "home", "home");
+		return source.getConnection();
 	}
 	public void regist(MemberDto dto) throws Exception{
 		Connection con = this.getConnection();

@@ -1,7 +1,14 @@
 package home.beans;
 
 public class BoardDto {
+	private int rn;
 	private int no;
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
 	private String head;
 	private String title;
 	private String writer;
@@ -71,6 +78,19 @@ public class BoardDto {
 	}
 	public BoardDto() {
 		super();
+	}
+	public BoardDto(int rn, int no, String head, String title, String writer, String wdate, int readcount,
+			int replycount, String content) {
+		super();
+		this.rn = rn;
+		this.no = no;
+		this.head = head;
+		this.title = title;
+		this.writer = writer;
+		this.wdate = wdate;
+		this.readcount = readcount;
+		this.replycount = replycount;
+		this.content = content;
 	}
 	
 	}
