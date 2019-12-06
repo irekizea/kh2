@@ -83,11 +83,49 @@
 			<td>댓글<%=dto.getReplycount() %>
 				조회수 <%=dto.getReadcount() %></td>
 		</tr>
+		
+		<!--  댓글 목록 -->
+		
+		<tr>
+			<td>
+					<table border ="1" width = "100%">
+						<tr>
+							<th width ="100">
+								<img src ="http://placehold.it/100X100">
+							</th>
+							<td>
+								작성자 자리
+								작성일
+								답글
+								<br><br>
+								내용
+							</td>
+						</tr>
+					</table>
+					
+					
+			</td>
+		</tr>
+		
+		<!--  댓글 작성칸 표시 -->
+		<tr>
+			<td>
+			
+				<form action= "" method="post">
+					<textarea name ="" rows="4" cols ="100" required></textarea>
+					
+					<input type = "submit" value = "등록">
+				</form>
+				
+			
+			
+			</td>
+		</tr>
 	
 		<tr>
 			<td align= "right">
 				<a href="write.jsp"><input type = "button" value = "글쓰기"></a>
-				<a href="#"><input type = "button" value = "답글쓰기"></a>
+				<a href="write.jsp?superno=<%=dto.getNo()%>"><input type = "button" value = "답글쓰기"></a>
 				
 				
 				<%if(isMine||isAdmin){%>

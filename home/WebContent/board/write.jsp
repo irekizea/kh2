@@ -7,21 +7,9 @@
 	<h2 ><font color= "red">글 이쁘게 써</font></h2>
 
 	<form action = "/home/board/write.do" method = "post">
-			<!-- 	
-		<select name = "head">
-			<option value = "">선택</option>
-			<option>공지</option>
-			<option>정보</option>
-			<option>유머</option>
-		
-		</select>
-		
-		<input type = "text" name = "title" required>
-		<textarea name = "content"></textarea>
-		
-		<input type = "submit" value = "등록하기">
-
- -->
+	<%if(request.getParameter("superno")!=null){ %>
+	<input type="hidden" name = "superno" value ="<%=request.getParameter("superno") %>">
+	<%} %>
 	<table border = "1" width = "80%">
 		<tr>
 			<td colspan = "2">게시판</td>

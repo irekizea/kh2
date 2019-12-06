@@ -28,8 +28,7 @@
 	
 	int finish = pno * pageSize;
 	int start = finish -pageSize+1;
-	
-	System.out.println("start =" +start +"finish = " + finish);
+
 
 
 	BoardDao dao = new BoardDao();
@@ -80,6 +79,9 @@
 		<tr>
 			<th>rn</th>
 			<th>글번호</th>
+			<th>그룹</th>
+			<th>상위</th>
+			<th>차수</th>
 			<th align = "left" width = "50%">제목</th>
 			<th>작성자</th>
 			<th>작성일</th>
@@ -90,8 +92,18 @@
 	<tr>
 		<td><%=dto.getRn() %></td>
 		<td><%=dto.getNo() %></td>
+		<td><%=dto.getGroupno() %></td>
+	    <td><%=dto.getSuperno() %></td>
+		<td><%=dto.getDepth() %></td>
 		<td align = "left">
 		<!-- 말머리 출력 -->
+		
+		<% for(int i = 0; i<dto.getDepth(); i++){%>
+		 &nbsp;&nbsp;&nbsp;&nbsp;
+		<%} %>
+		<%if(dto.getDepth()>0){ %>
+		<img src="<%=request.getContextPath() %>/image/fds.png" width='20'>
+		<%} %>
 		
 		<%if(dto.getHead()!=null) {%>
 		[<%=dto.getHead() %>]

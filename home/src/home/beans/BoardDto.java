@@ -93,6 +93,46 @@ public class BoardDto {
 		this.content = content;
 	}
 	
+	//계층형 게시판 관련 값  추가
+	private int groupno, superno, depth;
+	public int getGroupno() {
+		return groupno;
+	}
+	public void setGroupno(int groupno) {
+		this.groupno = groupno;
+	}
+	public int getSuperno() {
+		return superno;
+	}
+	public void setSuperno(int superno) {
+		this.superno = superno;
+	}
+	public int getDepth() {
+		return depth;
+	}
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
+	public BoardDto(int rn, int no, String head, String title, String writer, String wdate, int readcount,
+			int replycount, String content, int groupno, int superno, int depth) {
+		super();
+		this.rn = rn;
+		this.no = no;
+		this.head = head;
+		this.title = title;
+		this.writer = writer;
+		this.wdate = wdate;
+		this.readcount = readcount;
+		this.replycount = replycount;
+		this.content = content;
+		this.groupno = groupno;
+		this.superno = superno;
+		this.depth = depth;
+	}
+	
+	
+	
+	
 	}
 	
 

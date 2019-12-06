@@ -3,6 +3,7 @@ package home.beans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +39,13 @@ public class BoardDao {
 		
 		
 		String sql = "select*from("  
-				+ "select rownum rn, A.*from(" 
-				+  "select * from board order by no desc" 
+				+ "select rownum rn, A.*from("
+				
+				
+				+ "select * from board "
+				+ "connect by prior no=superno "
+				+"start with superno is null "
+				+ "order siblings by groupno desc, no asc"
 				+  ")A"
 				+ ") where rn between ? and ?";
 		
@@ -67,6 +73,10 @@ public class BoardDao {
 			dto.setReadcount(rs.getInt("readcount"));
 			dto.setWriter(rs.getString("writer"));
 			dto.setReplycount(rs.getInt("replycount"));
+			dto.setGroupno(rs.getInt("groupno"));
+			dto.setDepth(rs.getInt("depth"));
+			dto.setSuperno(rs.getInt("superno"));
+
 			list.add(dto);
 
 		}
@@ -79,13 +89,27 @@ public class BoardDao {
 	public void BoardWrite(BoardDto dto) throws Exception {
 		Connection con = getConnection();
 		
-		String sql = "insert into board (no, head, title, writer, content) values(?, ?, ?, ?, ?)";
+		String sql = "insert into board "
+				+ "(no, head, title, writer, content, groupno, superno, depth) "
+				+ "values(?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getNo());
 		ps.setString(2, dto.getHead());
 		ps.setString(3, dto.getTitle());
 		ps.setString(4, dto.getWriter());
 		ps.setString(5, dto.getContent());
+		
+		if(dto.getGroupno()==0) {
+			ps.setInt(6, dto.getNo());
+			ps.setNull(7, Types.INTEGER);
+			ps.setInt(8, 0);
+		}else {
+			ps.setInt(6, dto.getGroupno());
+			ps.setInt(7, dto.getSuperno());
+			ps.setInt(8, dto.getDepth()+1);
+		}
+	
+	
 		
 		ps.execute();
 	
@@ -109,7 +133,10 @@ public class BoardDao {
 		
 		String sql = "select * from ( "  
 						+ "select rownum rn, A.*from( " 
-						+  "select * from board where "+type+ " like '%'||?||'%' order by no desc " 
+						+  "select * from board where "+type+ " like '%'||?||'%' "
+						+"connect by prior no=superno "
+						+ "start with superno is null "
+						+	"order siblings by groupno desc, no asc "
 						+  ")A " 
 						+ ") where rn between ? and ? ";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -134,6 +161,9 @@ public class BoardDao {
 			dto.setReadcount(rs.getInt("readcount"));
 			dto.setWriter(rs.getString("writer"));
 			dto.setReplycount(rs.getInt("replycount"));
+			dto.setGroupno(rs.getInt("groupno"));
+			dto.setDepth(rs.getInt("depth"));
+			dto.setSuperno(rs.getInt("superno"));
 			list.add(dto);
 
 		}
@@ -159,8 +189,9 @@ public class BoardDao {
 				dto.setReadcount(rs.getInt("readcount"));
 				dto.setWriter(rs.getString("writer"));
 				dto.setReplycount(rs.getInt("replycount"));
-				dto.setReadcount(rs.getInt("readcount"));
-				dto.setReplycount(rs.getInt("replycount"));		
+				dto.setGroupno(rs.getInt("groupno"));
+				dto.setDepth(rs.getInt("depth"));
+				dto.setSuperno(rs.getInt("superno"));
 		   }
 		   else {
 			   dto=null;

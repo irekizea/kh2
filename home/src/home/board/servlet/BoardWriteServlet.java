@@ -24,6 +24,16 @@ public class BoardWriteServlet extends HttpServlet{
 		BoardDao dao = new BoardDao();
 		BoardDto dto = new BoardDto();
 		
+		if(req.getParameter("superno")!=null) {
+			int superno = Integer.parseInt(req.getParameter("superno"));
+			BoardDto target =dao.get(superno);
+			dto.setSuperno(target.getNo());
+			dto.setGroupno(target.getGroupno());
+			dto.setDepth(target.getDepth());
+		}
+		
+		
+		
 		dto.setContent(req.getParameter("content"));
 		dto.setHead(req.getParameter("head"));
 		dto.setTitle(req.getParameter("title"));
