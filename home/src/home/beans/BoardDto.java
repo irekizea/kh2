@@ -3,12 +3,6 @@ package home.beans;
 public class BoardDto {
 	private int rn;
 	private int no;
-	public int getRn() {
-		return rn;
-	}
-	public void setRn(int rn) {
-		this.rn = rn;
-	}
 	private String head;
 	private String title;
 	private String writer;
@@ -16,6 +10,25 @@ public class BoardDto {
 	private int readcount;
 	private int replycount;
 	private String content ;
+	private String rwriter;
+	private String rwdate;
+	private int rgroupno;
+	private int rsuperno;
+	private int rdepth;
+	private String rcontent;
+	
+	public String getRcontent() {
+		return rcontent;
+	}
+	public void setRcontent(String rcontent) {
+		this.rcontent = rcontent;
+	}
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
 	public int getNo() {
 		return no;
 	}
@@ -93,6 +106,59 @@ public class BoardDto {
 		this.content = content;
 	}
 	
+	public BoardDto(int rn, int no, String head, String title, String writer, String wdate, int readcount,
+			int replycount, String content, String rwriter, String rwdate, int rgroupno, int rsuperno, int rdepth,
+			int groupno, int superno, int depth) {
+		super();
+		this.rn = rn;
+		this.no = no;
+		this.head = head;
+		this.title = title;
+		this.writer = writer;
+		this.wdate = wdate;
+		this.readcount = readcount;
+		this.replycount = replycount;
+		this.content = content;
+		this.rwriter = rwriter;
+		this.rwdate = rwdate;
+		this.rgroupno = rgroupno;
+		this.rsuperno = rsuperno;
+		this.rdepth = rdepth;
+		this.groupno = groupno;
+		this.superno = superno;
+		this.depth = depth;
+	}
+	public String getRwriter() {
+		return rwriter;
+	}
+	public void setRwriter(String rwriter) {
+		this.rwriter = rwriter;
+	}
+	public String getRwdate() {
+		return rwdate;
+	}
+	public void setRwdate(String rwdate) {
+		this.rwdate = rwdate;
+	}
+	public int getRgroupno() {
+		return rgroupno;
+	}
+	public void setRgroupno(int rgroupno) {
+		this.rgroupno = rgroupno;
+	}
+	public int getRsuperno() {
+		return rsuperno;
+	}
+	public void setRsuperno(int rsuperno) {
+		this.rsuperno = rsuperno;
+	}
+	public int getRdepth() {
+		return rdepth;
+	}
+	public void setRdepth(int rdepth) {
+		this.rdepth = rdepth;
+	}
+
 	//계층형 게시판 관련 값  추가
 	private int groupno, superno, depth;
 	public int getGroupno() {
@@ -125,6 +191,29 @@ public class BoardDto {
 		this.readcount = readcount;
 		this.replycount = replycount;
 		this.content = content;
+		this.groupno = groupno;
+		this.superno = superno;
+		this.depth = depth;
+	}
+	public BoardDto(int rn, int no, String head, String title, String writer, String wdate, int readcount,
+			int replycount, String content, String rwriter, String rwdate, int rgroupno, int rsuperno, int rdepth,
+			String rcontent, int groupno, int superno, int depth) {
+		super();
+		this.rn = rn;
+		this.no = no;
+		this.head = head;
+		this.title = title;
+		this.writer = writer;
+		this.wdate = wdate;
+		this.readcount = readcount;
+		this.replycount = replycount;
+		this.content = content;
+		this.rwriter = rwriter;
+		this.rwdate = rwdate;
+		this.rgroupno = rgroupno;
+		this.rsuperno = rsuperno;
+		this.rdepth = rdepth;
+		this.rcontent = rcontent;
 		this.groupno = groupno;
 		this.superno = superno;
 		this.depth = depth;

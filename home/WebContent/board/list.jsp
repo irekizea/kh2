@@ -126,7 +126,7 @@
 	
 	<tfoot>
 		<tr>
-		<td colspan = "6" align ="right"> <a href="write.jsp">글쓰기</a></td>
+		<td colspan = "9" align ="right"> <a href="write.jsp">글쓰기</a></td>
 		</tr>
 	
 	</tfoot>

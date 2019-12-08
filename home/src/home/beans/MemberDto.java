@@ -174,8 +174,8 @@ public class MemberDto {
 			return "";
 		}else {
 		
-		SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
-		Date date = read.parse(last_login);
+			SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+			Date date = read.parse(last_login);
 		
 		SimpleDateFormat write = new SimpleDateFormat("Y년 M월 d일 E요일 a hh시mm분");
 		String time = write.format(date);

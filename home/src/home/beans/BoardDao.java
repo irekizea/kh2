@@ -85,13 +85,39 @@ public class BoardDao {
 		return list;
 		
 	}
+	public void rwrite(BoardDto dto) throws Exception{
+		Connection con = getConnection();
+		System.out.println(dto.getNo());
+	
+		String sql = "insert into reply "
+				+ "(rwriter, rwdate, rgroupno, rsuperno, rdepth, rcontent, rno)"
+				+ "values(?, sysdate, ?, ?, ?, ?, reply_seq.nextval)";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, dto.getRwriter());
+		System.out.println("여기까지");
+		if(dto.getRgroupno()==0) {
+		ps.setInt(2, dto.getNo());
+		ps.setNull(3, Types.INTEGER);
+		ps.setInt(4, 0);
+		}
+		else {
+			ps.setInt(2, dto.getGroupno());
+			ps.setInt(3, dto.getRsuperno());
+			ps.setInt(4, dto.getRdepth());
+		}
+		ps.setString(5, dto.getRcontent());
+		ps.execute();
+		
+		con.close();
+	}
+	
 	
 	public void BoardWrite(BoardDto dto) throws Exception {
 		Connection con = getConnection();
-		
+		System.out.println("asd");
 		String sql = "insert into board "
-				+ "(no, head, title, writer, content, groupno, superno, depth) "
-				+ "values(?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "(no, head, title, writer, content, groupno, superno, depth, wdate) "
+				+ "values(?, ?, ?, ?, ?, ?, ?, ?, sysdate)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getNo());
 		ps.setString(2, dto.getHead());
@@ -123,13 +149,7 @@ public class BoardDao {
 	public List<BoardDto> list(int start, int finish, String type, String keyword) throws Exception{
 		Connection con = getConnection();
 		
-//		"select*from("  
-//		+ "select rownum rn, A.*from(" 
-//		+  "select * from board order by no desc" 
-//		+  ")A"
-//		+ ") where rn between ? and ?";
-		
-		
+
 		
 		String sql = "select * from ( "  
 						+ "select rownum rn, A.*from( " 
@@ -201,6 +221,35 @@ public class BoardDao {
 		
 	}
 	
+		public BoardDto rget(int no) throws Exception{
+			Connection con = getConnection();
+			  System.out.println(no+"dd");
+				String sql = "select * from reply where rgroupno =?";
+				PreparedStatement ps =con.prepareStatement(sql);
+			   ps.setInt(1, no);
+			   ResultSet rs = ps.executeQuery();
+			   BoardDto dto = new BoardDto();
+			   System.out.println(no);
+			   if(rs.next()) {
+					dto.setRcontent(rs.getString("rcontent"));
+					dto.setRwdate(rs.getString("rwdate"));
+					dto.setRwriter(rs.getString("rwriter"));
+					dto.setRgroupno(rs.getInt("rgroupno"));
+					dto.setRdepth(rs.getInt("rdepth"));
+					dto.setRsuperno(rs.getInt("rsuperno"));
+			   }
+			   else {
+				   dto=null;
+			   }
+			   
+			   System.out.println(dto.getRwriter());
+			   return dto;
+			
+			
+		}
+		
+		
+		
 	
 	
 	public int getSequence() throws Exception{

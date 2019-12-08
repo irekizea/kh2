@@ -64,7 +64,7 @@
  		
  		 		<tr>
  			<td> 최종로그인</td>
-  			<td> <%=dto.getLast_loginWithFormat() %> </td>
+  			<td><%=dto.getLast_login() %> </td>
  		</tr>
  		
  		

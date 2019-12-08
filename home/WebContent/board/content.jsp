@@ -41,25 +41,13 @@
 	//[3] 처리를 마치고 저장소를 다시 세션에 저장한다
 	session.setAttribute("memory", memory);
    
- //  Set<Integer> memory = (Set<Integer>)session.getAttribute("memory");
-   
-   
-  // if(memory == null){
-//	   Set<Integer> memory = new HashSet<>();
-//	   }
-   
- //  boolean isFirst=memory.add(no);
-  // System.out.println(memory);
-   
-   
-  // session.setAttribute("memory", memory);
-   
    
    if(!isMine && isFirst){
    dto.setReadcount(dto.getReadcount()+1);
    dao.cu(no);
    }
    
+  	BoardDto dto2 = dao.rget(22);
    %>
     
 <jsp:include page = "/template/header.jsp"></jsp:include>
@@ -94,7 +82,7 @@
 								<img src ="http://placehold.it/100X100">
 							</th>
 							<td>
-								작성자 자리
+								
 								작성일
 								답글
 								<br><br>
@@ -111,8 +99,8 @@
 		<tr>
 			<td>
 			
-				<form action= "" method="post">
-					<textarea name ="" rows="4" cols ="100" required></textarea>
+				<form action= "<%=request.getContextPath()%>/board/reply.do?no=<%=no %>" method="post">
+					<textarea name ="rcontent" rows="4" cols ="100" required></textarea>
 					
 					<input type = "submit" value = "등록">
 				</form>
