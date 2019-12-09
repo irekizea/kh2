@@ -34,7 +34,7 @@
 			
 	 	</th>
 	 </tr>
-	 <tr">
+	 <tr>
 		 <th align = "right">
 		
 		<jsp:include page = "/template/menu.jsp"></jsp:include>

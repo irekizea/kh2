@@ -17,5 +17,6 @@
 	<classpathentry kind="lib" path="D:/k/apache-tomcat-9.0.27/bin/bootstrap.jar"/>
 	<classpathentry kind="lib" path="D:/k/apache-tomcat-9.0.27/bin/commons-daemon.jar"/>
 	<classpathentry kind="lib" path="D:/k/apache-tomcat-9.0.27/bin/tomcat-juli.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cos.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

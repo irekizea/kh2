@@ -94,7 +94,6 @@ public class BoardDao {
 				+ "values(?, sysdate, ?, ?, ?, ?, reply_seq.nextval)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getRwriter());
-		System.out.println("여기까지");
 		if(dto.getRgroupno()==0) {
 		ps.setInt(2, dto.getNo());
 		ps.setNull(3, Types.INTEGER);
@@ -281,8 +280,9 @@ public class BoardDao {
 	}
 	public void delete(int no) throws Exception {
 		Connection con = getConnection();
-		
+		System.out.println("dao 삭제전");
 		String sql= "delete board where no = ? ";
+		System.out.println("dao 삭제후");
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
 		ps.execute();
@@ -341,5 +341,18 @@ public class BoardDao {
 		
 	
 	}
-	
+	public void calculate(int no) throws Exception{
+		Connection con = getConnection();
+
+		String sql = 
+				"update board "
+				+ "set replycount = (select count(*) from reply where origin = ?) "
+				+ "where no = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, no);
+		ps.setInt(2, no);
+
+		ps.execute();
+		con.close();
+	}
 }

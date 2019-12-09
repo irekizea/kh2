@@ -6,7 +6,7 @@
 
 	<h2 ><font color= "red">글 이쁘게 써</font></h2>
 
-	<form action = "/home/board/write.do" method = "post">
+	<form action = "/home/board/write.do" method = "post" enctype="multipart/form-data">
 	<%if(request.getParameter("superno")!=null){ %>
 	<input type="hidden" name = "superno" value ="<%=request.getParameter("superno") %>">
 	<%} %>
@@ -25,6 +25,14 @@
 			<td><textarea name = "title" rows = "1" cols = "95"></textarea></td>
 		</tr>
 		<tr>
+		
+			<td>첨부 파일</td>
+			<td colspan="3"><input type ="text" name = "uploader"><input type = "file" name = "file" accept="jpg, png, gif"><input type = "submit" value = "업로드"></td>
+		</tr>
+		
+		
+		
+		<tr>
 			<td colspan = "3">
 			<textarea name = "content" rows="30" cols="100" required style ="resize:vertical"></textarea>
 			</td>
@@ -32,9 +40,12 @@
 		</tr>
 		<tr align = "right">
 			
-			<td colspan ="3"><a href = "#" >상세정보</a><input type = "submit" name = "작성"></td>
+			
+			
+			<td><a href = "#" >상세정보</a><input type = "submit" name = "작성"></td>
 		</tr>
-	
+    
+
 	
 	</table>
 

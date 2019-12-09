@@ -1,3 +1,8 @@
+<%@page import="home.beans.FilesDto"%>
+<%@page import="home.beans.FilesDao"%>
+<%@page import="java.util.List"%>
+<%@page import="home.board.servlet.ReplyDto"%>
+<%@page import="home.board.servlet.ReplyDao"%>
 <%@page import="java.util.Set"%>
 <%@page import="java.util.HashSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -36,7 +41,6 @@
 	}
 	//[2] 처리를 수행한다.
 	boolean isFirst = memory.add(no);
-	System.out.println(memory);
 	
 	//[3] 처리를 마치고 저장소를 다시 세션에 저장한다
 	session.setAttribute("memory", memory);
@@ -46,8 +50,14 @@
    dto.setReadcount(dto.getReadcount()+1);
    dao.cu(no);
    }
+
    
-  	BoardDto dto2 = dao.rget(22);
+   /////////////////////////
+   //첨부파일 로드
+   ////////////////////////////
+   
+   FilesDao fdao = new FilesDao();
+   List<FilesDto> flist = fdao.getList(no);
    %>
     
 <jsp:include page = "/template/header.jsp"></jsp:include>
@@ -73,22 +83,71 @@
 		</tr>
 		
 		<!--  댓글 목록 -->
+		<%if(flist.size()>0){ %>
+		<tr>
+			<td>
+				<ul>
+				<%for(FilesDto fdto : flist) { %>
+					<li>
+					<!-- 미리보기 출력 -->
+					<img src = "download.do?no=<%=fdto.getNo()%> "width = "80" height="50">
+						 <%=fdto.getUploadname()%>
+						 <%=fdto.getFilesize()%>
+						 
+						 <a href = "download.do?no=<%=fdto.getNo()%>"	> <img src = "../image/asdf.jpg" width ="25" height = "25">	</a>	
+								
+					</li>
+				<%} %>
+				</ul>
+			
+			
+			
+			
+			</td>
 		
+		
+		
+		</tr>
+		
+		
+		<%} %>
+		
+		
+		
+		
+		<%
+	
+			ReplyDao rdao = new ReplyDao();
+			List<ReplyDto> list = rdao.getList(no);
+			System.out.println("dd");
+		%>
 		<tr>
 			<td>
 					<table border ="1" width = "100%">
+						<%for(ReplyDto rdto :list){ %>
 						<tr>
 							<th width ="100">
 								<img src ="http://placehold.it/100X100">
 							</th>
 							<td>
+							
+								<%=rdto.getWriter() %>	
+								<% if(dto.getWriter().equals(rdto.getWriter())) {%>
+								<font color="red">(작성자)</font>
+								<%} %>
+									
+								<%=rdto.getWdate() %>
 								
-								작성일
+								<% if(userId.equals(rdto.getWriter())){%>
+								<a href = "#">수정</a>
+								<a href="reply_delete.do?no=<%=rdto.getNo()%>&origin=<%=dto.getNo()%>">삭제</a>
+								<%} %>
 								답글
 								<br><br>
-								내용
+								<%= rdto.getContent() %>
 							</td>
 						</tr>
+						<%} %>
 					</table>
 					
 					
@@ -99,8 +158,9 @@
 		<tr>
 			<td>
 			
-				<form action= "<%=request.getContextPath()%>/board/reply.do?no=<%=no %>" method="post">
-					<textarea name ="rcontent" rows="4" cols ="100" required></textarea>
+				<form action= "reply_insert.do" method="post">
+					<input type = "hidden" name = "origin" value ="<%=dto.getNo() %>">
+					<textarea name ="content" rows="4" cols ="100" required></textarea>
 					
 					<input type = "submit" value = "등록">
 				</form>

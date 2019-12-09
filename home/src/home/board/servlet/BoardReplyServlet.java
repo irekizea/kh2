@@ -40,8 +40,7 @@ public class BoardReplyServlet extends HttpServlet{
 		
 		dto.setRcontent(req.getParameter("rcontent"));
 		String id = (String)req.getSession().getAttribute("id");
-		
-		System.out.println(id+dto.getRgroupno()+"   "+dto.getRsuperno());
+	
 		dto.setRwriter(id);
 			dao.rwrite(dto);
 			
