@@ -1,4 +1,4 @@
-package home.board.servlet;
+package home.beans;
 
 public class ReplyDto {
 	private int no, origin;

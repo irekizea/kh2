@@ -1,4 +1,4 @@
-package home.board.servlet;
+package home.beans;
 
 
 import java.sql.Connection;

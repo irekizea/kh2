@@ -1,8 +1,8 @@
 <%@page import="home.beans.FilesDto"%>
 <%@page import="home.beans.FilesDao"%>
 <%@page import="java.util.List"%>
-<%@page import="home.board.servlet.ReplyDto"%>
-<%@page import="home.board.servlet.ReplyDao"%>
+<%@page import="home.beans.ReplyDto"%>
+<%@page import="home.beans.ReplyDao"%>
 <%@page import="java.util.Set"%>
 <%@page import="java.util.HashSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import home.beans.BoardDao;
+import home.beans.ReplyDao;
 
 @WebServlet(urlPatterns = "/board/reply_delete.do")
 public class BoardReplyDeleteServlet extends HttpServlet{
