@@ -2,45 +2,45 @@
     pageEncoding="UTF-8"%>
 <!--  상단 조각을 보관하는 페이지 -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>home</title>
+    <meta charset="UTF-8">
+    <title>GGu</title>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/common.css">
+   <style>
+         .title>*{
+            margin: auto;
+            text-align: center;
+            font-family: typo;
+            color: darkgray;
+            font-size: 60px;
+        }
+        .regtitle>*{
+		font-style:dx;
+		font-size:2rem;
+		color:#512e5e;
+		text-align : center;
+		}
+
+    </style>
+
 </head>
-<body>
-	<!--  
-	홈페이지 영역 생성
-	-고정형 : 화면 변해도 크기 일정
-	-반응형 : 화면 변하면 크기도 변함
-	
-	 -->
-	 
-	 <div align = "center">
-	 <table width ="1000" style="border-collapse:collapse;" >
-	 <tbody>
-	 <tr bgcolor="DDDDDD">
-	 	<th>
-	 		<br>
-	 		
-	 		<img src = "http://placehold.it/200x38?text=GGubuk">
-	 		<br>
-	 		
-	 		
-	 		
-	 		
-	 	 	<font size = "4"> 홈페이지 2주만에 마스터 하기 </font><br>
-			<br>
-			
-			
-	 	</th>
-	 </tr>
-	 <tr>
-		 <th align = "right">
-		
-		<jsp:include page = "/template/menu.jsp"></jsp:include>
-		 
-		 
-		 </th>
-	 </tr >
-	 <tr height = "300">
-	 	<th valign = "top">
+
+<body test>
+    <main>
+        <header>
+              <div class="title">
+        <h1>KH information</h1>
+
+  		  </div>
+            
+        </header>
+         <jsp:include page = "/template/menu.jsp"></jsp:include>
+          <section>
+
+            <div class="row-empty"></div>
+            <div class="row-empty"></div>
+            <div class="row-empty"></div>
+
+

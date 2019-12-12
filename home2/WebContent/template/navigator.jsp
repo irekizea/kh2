@@ -24,7 +24,7 @@
 	
 	if(finishblock>pagecount){
 		finishblock = pagecount;
-		
+// 	System.out.println(request.getRequestURI());
 		
 	}
  	
@@ -33,43 +33,43 @@
  
  
  
-<h5>
- 		<%if(startBlock>1){ %>
-  	 		<%if(isSearch){ %>
-  	 	<a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=startBlock - 1%>">[이전]</a> 
-  	 		<%}else{ %>
-  	 	<a href="<%=request.getRequestURI()%>?pno=<%=startBlock - 1%>">[이전]</a>
-			<%} %>
-	
+
+
+  <ul class="pagination">
   
-  	 	
- 	 
- 	 <%} %>
- 	 		<% for(int i=startBlock; i<= finishblock; i++){%>	
- 	 			<%if(i==pno){ %>
- 	 			<%=i %>
- 	 			<%}else {%>
- 	 				<%if(isSearch){ %>
- 	 				<a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=i%>"><%=i%></a>
- 	 				<%} else { %>
- 	 	 			<a href="<%=request.getRequestURI()%>?pno=<%=i%>"><%=i%></a>
- 	 	 		<%} %>
- 	 	 	<%} %> 
+  
+  			<%if(startBlock>1){ %>
+  	 			<%if(isSearch){ %>
+  	 				<li><a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=startBlock - 1%>">[이전]</a> </li>
+  	 			<%}else{ %>
+  	 				<li><a href="<%=request.getRequestURI()%>?pno=<%=startBlock - 1%>">[이전]</a> </li>
+				<%} %>
+ 			 <%} %>
+			 <% for(int i=startBlock; i<= finishblock; i++){%>	
+			 	<%if(i==pno){ %>
+			 			<li class="active" Style="color:blanchedalmond"><%=i %></li>
+			 	<%}else {%>
+			 			<%if(isSearch){ %>
+ 	 						<li><a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=i%>"><%=i%></a></li>
+ 	 					<%} else { %>
+ 	 	 					<li><a href="<%=request.getRequestURI()%>?pno=<%=i%>"><%=i%></a></li>
+ 	 	 				<%} %>
+ 	 	 		<%} %> 
  	 	 	<%} %>
- 	 	 	
- 	 	 	
- 	 	 	
- 	 	<%if(finishblock<pagecount){ %>
+ 	 	 <%if(finishblock<pagecount){ %>
  	 	
  	 		<%if(isSearch){ %>
- 	 		<a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=finishblock + 1%>">[다음]</a>
+ 	 		<li><a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=finishblock + 1%>">[다음]</a></li>
  	 	<%} else { %>
- 	 	<a href="<%=request.getRequestURI()%>?pno=<%=finishblock + 1%>">[다음]</a>
+ 	 	<li><a href="<%=request.getRequestURI()%>?pno=<%=finishblock + 1%>">[다음]</a></li>
  	 	<%} %>
  	 	<%} %>
-  	
-  	</h5>
-  	
+ 	</ul>
+ 	 	 	
+ 
+
+ 	 	
+
   	
   	
  	
