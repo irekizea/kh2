@@ -14,21 +14,25 @@
 %>
 		  
 		  
-		 <a href = "<%=context %>/index.jsp"> 홈으로</a>
-		 
 		
-		
-		 <%if(id==null){ %>
-		 <a href = "<%=context %>/member/login.jsp"> 로그인</a> 
-		  <a href = "<%=context%>/member/regist.jsp"> 회원가입</a>
-	
-		 <%}else{ %>
-		  <a href = "<%=context%>/member/info.jsp"> 회원정보</a>
-		 <a href = "<%=context %>/member/logout.do"> 로그아웃</a>
-		 <a href="<%=context %>/member/exit.do">회원 탈퇴</a>
-		 <%} %>
-		 
-		 <%if(admin) { %>
-		 	 <a href = "<%=context%>/admin/list.jsp"> 회원찾기</a> 
-		 <%} %>
-		 <a href = "<%=context%>/board/list.jsp"> 게시판               </a> 
+        <nav>
+            <div class="menu">
+                <label for="hamburg">&equiv;</label>
+                <input type="checkbox" id="hamburg">
+                <a href="<%=context %>/index.jsp" class="menu-item left-menu">홈으로</a>
+                <a href="<%=context %>/board/list.jsp" class="menu-item left-menu">게시판</a>
+                <%if(admin) {%>
+                <a href="<%=context %>/member/find.jsp" class="menu-item left-menu">회원찾기</a>
+                <%} %>
+                
+                <%if(id!=null){ %>
+                <a href="<%=context %>/member/logout.do" class="menu-item right-menu">로그아웃</a>
+                <a href="<%=context %>/member/info.jsp" class="menu-item right-menu">회원정보</a>
+                  <a href="<%=context %>/member/exit.do" class="menu-item right-menu">회원탈퇴</a>
+                <%}else{ %>
+                  <a href="<%=context %>/member/login.jsp" class="menu-item right-menu">로그인</a>
+                <a href="<%=context %>/member/regist.jsp" class="menu-item right-menu">회원가입</a>
+                
+                <%} %>
+            </div>
+        </nav>

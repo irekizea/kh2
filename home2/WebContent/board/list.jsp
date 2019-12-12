@@ -72,83 +72,82 @@
 	
 %>
 
-<div align="center">
 
-<table border = "1">
-	<thead>
-		<tr>
-			<th>rn</th>
-			<th>글번호</th>
-			<th>그룹</th>
-			<th>상위</th>
-			<th>차수</th>
-			<th align = "left" width = "50%">제목</th>
-			<th>작성자</th>
-			<th>작성일</th>
-			<th>조회수</th>
-		</tr>
-	</thead>
+<article class = "w-100">
+	<div class="row">
+	
+	<h2>자유 게시판</h2>
+	<small><h5>글 이쁘게써</h5></small>
+	
+	</div>
+	<div class="row">
+		<table class="table">
+			<thead>
+			<tr>
+				<th>글번호</th>
+				<th width = "50%">제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>조회수</th>
+			</tr>
+			</thead>
+			
+	<tbody>
 	<% for(BoardDto dto : list){%>
 	<tr>
-		<td><%=dto.getRn() %></td>
 		<td><%=dto.getNo() %></td>
-		<td><%=dto.getGroupno() %></td>
-	    <td><%=dto.getSuperno() %></td>
-		<td><%=dto.getDepth() %></td>
 		<td align = "left">
-		<!-- 말머리 출력 -->
-		
-		<% for(int i = 0; i<dto.getDepth(); i++){%>
-		 &nbsp;&nbsp;&nbsp;&nbsp;
-		<%} %>
-		<%if(dto.getDepth()>0){ %>
-		<img src="<%=request.getContextPath() %>/image/fds.png" width='20'>
-		<%} %>
-		
-		<%if(dto.getHead()!=null) {%>
-		[<%=dto.getHead() %>]
-		<%} %>
-		
-		<a href="/home/board/content.jsp?no=<%=dto.getNo()%>">
-			<%=dto.getTitle() %>
-		</a>
+			<!-- 말머리 출력 -->
+			<% for(int i = 0; i<dto.getDepth(); i++){%>
+				 &nbsp;&nbsp;&nbsp;&nbsp;
+			<%} %>
+			<%if(dto.getDepth()>0){ %>
+				<img src="<%=request.getContextPath() %>/image/fds.png" width='20'>
+			<%} %>
+			
+			<%if(dto.getHead()!=null) {%>
+				[<%=dto.getHead() %>]
+			<%} %>
+			
+			<a href="<%=request.getContextPath() %>/board/content.jsp?no=<%=dto.getNo()%>">
+				<%=dto.getTitle() %>
+			</a>
 			<%if(dto.getReplycount() > 0) {%>
-		<font color ="red">
-			<%=dto.getReplycount() %>
-		</font>
-				<%} %>
+			<font color ="red">
+				<%=dto.getReplycount() %>
+			</font>
+			<%} %>
 		</td>
 		<td><%=dto.getWriter() %></td>
 		<td><%=dto.getWdate() %></td>
 		<td><%=dto.getReadcount() %></td>
 	</tr>
 	<%} %>
+	</tbody>
 	
-	<tfoot>
-		<tr>
-		<td colspan = "9" align ="right"> <a href="write.jsp">글쓰기</a></td>
-		</tr>
+		</table>
 	
-	</tfoot>
-
-</table>
-
-
-
-<jsp:include page="/template/navigator.jsp">
+	</div>
+	
+	<div class="row-right"> 
+	<a href="write.jsp"><input class="btn" type ="button" value="글쓰기"></a>
+	
+	
+	
+	</div>
+	
+	<div class="row">
+	
+	<jsp:include page="/template/navigator.jsp">
 		<jsp:param name="pno" value="<%=pno%>"/>
 		<jsp:param name="count" value="<%=count%>"/>
 		<jsp:param name="navsize" value="<%=navsize%>"/>
 		<jsp:param name="pageSize" value="<%=pageSize%>"/>
 	</jsp:include>
-
- 	
- 	
- 	
- 	
- 	
- 	
- 	
+	
+	</div>
+	<div class="row input-item">
+	
 	<form action="list.jsp" method = "get">
 		<select name = "type">
 		
@@ -162,10 +161,11 @@
 	
 	
 	</form>
-	<h5>pno = <%=pno %>, type = <%=type %>, keyword=<%=keyword %></h5>
-	<h5>pageSize = <%=pageSize %>, startBlock = <%=startBlock %>, finishblock  = <%=finishblock %></h5>
-	<h5>count=<%=count %></h5>
+	</div>
 
 
-</div>
+</article>
+
+
+
  <jsp:include page = "/template/footer.jsp"></jsp:include>
