@@ -12,28 +12,7 @@
                 </div>
                 <div class="row"><img src="<%=request.getContextPath() %>/img/buk.jpg"> </div>
 
-				<div class="row-multi col-3">
-					<div >
-						<h2 class="title"> asda</h2>
-						<p>ㄴㅇㄹ</p>
-					</div>
-				<div >
-						<h2 class="title"> asda</h2>
-						<p>ㄴㅇㄹ</p>
-					</div><div >
-						<h2 class="title"> asda</h2>
-						<p>ㄴㅇㄹ</p>
-					</div>
-					<div >
-						<h2 class="title"> asda</h2>
-						<p>ㄴㅇㄹ</p>
-					</div>
-					<div >
-						<h2 class="title"> asda</h2>
-						<p>ㄴㅇㄹ</p>
-					</div>
 				
-				</div>
     
         
    <jsp:include page = "/template/footer.jsp"></jsp:include>

@@ -74,7 +74,7 @@ public class BoardWriteServlet extends HttpServlet{
 			
 			
 			
-			resp.sendRedirect("/home/board/list.jsp");
+			resp.sendRedirect("board/list.jsp");
 			
 		} catch (Exception e) {
 			resp.sendError(500);

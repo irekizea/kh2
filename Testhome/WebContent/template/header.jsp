@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>test</title>
 </head>
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/common.css">
 <body>
 <div align = "center">
 

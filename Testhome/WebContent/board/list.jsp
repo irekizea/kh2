@@ -1,24 +1,46 @@
+<%@page import="java.util.List"%>
+<%@page import="test.beans.BoardDto"%>
+<%@page import="test.beans.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <%
+ 
+ BoardDao bdao = new BoardDao();
+ BoardDto bdto = new BoardDto();
+ 
+ 
+ List<BoardDto> list = bdao.list();
+ 
+ 
+ 
+ 
+ %>
 <jsp:include page = "/template/header.jsp"></jsp:include>
 
 <div align="center">
 
 	<table border="1">
 		<tr>
-			<th colspan = "2">제목</th>
+			<th>번호</th>
+			<th>제목</th>
 			<th>작성자</th>
 			<th>작성일</th>
 			<th>조회</th>
-			<th>좋아요</th>
 		</tr>
+		<% for(BoardDto dto: list ){ %>
+		
 		<tr>
-			<td>글번호</td>
-			<td>제목칸</td>
-			<td>작성자칸</td>
-			<td>작성일</td>
-			<td>조회수</td>
-			<td>좋아요</td>
+			<td><%=dto.getNo()%></td>
+			<td><%=dto.getTitle() %></td>
+			<td><%=dto.getWriter() %></td>
+			<td><%=dto.getWdate() %></td>
+			<td><%=dto.getReadcount() %></td>
+		
+		</tr>
+		<%} %>
+		<tr align ="right">
+			<td><a href="write.jsp">글쓰기</a></td>
 		
 		</tr>
 	
