@@ -6,11 +6,11 @@
 
 	<h2 ><font color= "red">글 이쁘게 써</font></h2>
 
-	<form action = "/home/board/write.do" method = "post" enctype="multipart/form-data">
+	<form action = "write.do" method = "post" enctype="multipart/form-data">
 	<%if(request.getParameter("superno")!=null){ %>
 	<input type="hidden" name = "superno" value ="<%=request.getParameter("superno") %>">
 	<%} %>
-	<table border = "1" width = "80%">
+	<table class="table" width = "80%">
 		<tr>
 			<td colspan = "2">게시판</td>
 			<td><select name = "head">
@@ -42,7 +42,7 @@
 			
 			
 			
-			<td><a href = "#" >상세정보</a><input type = "submit" name = "작성"></td>
+			<td colspan = "3"><a href = "#" >상세정보</a><input type = "submit" name = "작성"></td>
 		</tr>
     
 
