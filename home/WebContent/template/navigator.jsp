@@ -7,6 +7,8 @@
 	반드시 받아야 하는 데이터 : tlype, keyword, pno, count, navisize
  -->
  <%
+ 
+ 
  	String type = request.getParameter("type");
  	String keyword = request.getParameter("keyword");
  	
