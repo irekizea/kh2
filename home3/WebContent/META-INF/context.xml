@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  server에서 읽어드릴 context 내부 설정 -->
+
+<Context>
+
+	<!-- 서버에 필요한 자원 정보들을 등록  
+	minIdle : 최소 유휴 연결개수
+	driverClassName : 드라이버 연결 주소
+	
+	-->
+
+			  
+	<Resource 	name="jdbc/oracle"
+						type="javax.sql.DataSource"
+						auth="Container"
+
+						driverClassName="oracle.jdbc.OracleDriver"
+						url="jdbc:oracle:thin:@localhost:1521:xe"
+						username="home"
+						password="home"
+
+						maxTotal="20"
+						maxIdle="10"
+						maxWait="3000"/>
+
+
+
+
+</Context>

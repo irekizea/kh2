@@ -14,7 +14,7 @@
 %>
 		  
 		  
-		
+			
         <nav>
             <div class="menu">
                 <label for="hamburg">&equiv;</label>

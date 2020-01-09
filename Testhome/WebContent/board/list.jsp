@@ -12,8 +12,7 @@
  
  List<BoardDto> list = bdao.list();
  
- 
- 
+ System.out.println();
  
  %>
 <jsp:include page = "/template/header.jsp"></jsp:include>
